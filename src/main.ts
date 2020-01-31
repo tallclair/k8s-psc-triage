@@ -44,7 +44,8 @@ async function run() {
     if (!!context.payload.issues) {
       await processIssue(client, context.payload.issues.issue);
     } else {
-      core.error('context is missing an issue payload')
+      const payload = JSON.stringify(context.payload);
+      core.error(`context is missing an issue payload: ${payload}`);
     }
   } catch (error) {
     core.error(error);
