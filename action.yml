@@ -1,0 +1,9 @@
+name: 'K8s PSC Triage'
+description: 'Handle issue triage for the Kubernetes Product Security Committee'
+inputs:
+  repo-token:
+    description: 'Token for the repository. Can be passed in using {{ secrets.GITHUB_TOKEN }}'
+    required: true
+runs:
+  using: 'node12'
+  main: 'lib/main.js'
