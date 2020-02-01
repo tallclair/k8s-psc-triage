@@ -41,8 +41,8 @@ async function run() {
     );
     const context = github.context;
 
-    if (!!context.payload.issues) {
-      await processIssue(client, context.payload.issues.issue);
+    if (!!context.payload.issue) {
+      await processIssue(client, context.payload.issue as Issue);
     } else {
       const payload = JSON.stringify(context.payload);
       core.error(`context is missing an issue payload: ${payload}`);
